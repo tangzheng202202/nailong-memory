@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "remotion": {
+      "version": "1.0.1",
+      "installedAt": 1772652483844
+    },
+    "ddg-web-search": {
+      "version": "1.0.0",
+      "installedAt": 1772652541931
+    },
+    "browser-use": {
+      "version": "1.0.2",
+      "installedAt": 1772653561789
+    }
+  }
+}
