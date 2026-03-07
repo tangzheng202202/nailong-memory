@@ -1,0 +1,31 @@
+{
+  "system": "OpenClaw Multi-Agent System",
+  "version": "1.0",
+  "created": "2026-03-07",
+  "agents": {
+    "main": {
+      "role": "调度者",
+      "status": "active",
+      "last_active": "2026-03-07T09:00:00+08:00"
+    },
+    "coder": {
+      "role": "编程专家",
+      "status": "standby",
+      "last_active": null
+    },
+    "researcher": {
+      "role": "研究专家",
+      "status": "standby",
+      "last_active": null
+    },
+    "monitor": {
+      "role": "监控专家",
+      "status": "active",
+      "last_active": "2026-03-07T08:41:00+08:00"
+    }
+  },
+  "stats": {
+    "tasks_completed": 0,
+    "tasks_failed": 0
+  }
+}

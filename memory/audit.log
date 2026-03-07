@@ -1,0 +1,4 @@
+# OpenClaw 多 Agent 系统审计日志
+# 格式: [时间] [Agent] [操作类型] [详情] [结果]
+
+[2026-03-07 09:11:54] [SYSTEM] [START] [多 Agent 系统启动] [SUCCESS]

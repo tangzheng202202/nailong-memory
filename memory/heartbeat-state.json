@@ -1,11 +1,11 @@
 {
   "lastChecks": {
-    "email": 1709760000,
-    "calendar": 1709760000,
+    "email": 1709800200,
+    "calendar": 1709800200,
     "weather": 1709760000,
-    "files": 1709760000,
-    "git": 1709760000
+    "files": 1709800200,
+    "git": 1709800200
   },
-  "nextScheduledCheck": "2026-03-07T14:00:00+08:00",
-  "lastCheckSummary": "首次完整检查完成于 2026-03-07 08:02"
+  "nextScheduledCheck": "2026-03-07T20:00:00+08:00",
+  "lastCheckSummary": "14:10 快速检查 - 工作区活动正常"
 }
