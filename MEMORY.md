@@ -1,6 +1,8 @@
-# MEMORY.md - 长期记忆
+# MEMORY.md - 长期记忆索引层
 
-_这是整理后的长期记忆，记录重要信息、偏好和决策。_
+> 这是整理后的长期记忆索引。详细内容在各分层文件中。
+
+---
 
 ## 用户信息
 
@@ -9,48 +11,74 @@ _这是整理后的长期记忆，记录重要信息、偏好和决策。_
 - **时区**: Asia/Shanghai (GMT+8)
 - **偏好**: 待补充
 
+---
+
+## 能力索引
+
+### 已部署系统
+
+| 系统 | 状态 | 文档位置 |
+|------|------|----------|
+| 多 Agent 协作 | 已部署 | `/workspace/agents/multi-agent-system.md` |
+| 监控 v5 | 运行中 | `/workspace/scripts/monitor-v5.sh` |
+| RSS 监控 | 运行中 | `/workspace/scripts/rss-monitor.sh` |
+| 本地模型路由 | 已配置 | ollama + 4 个模型 |
+
+### Agent 分工
+
+| Agent | 职责 | 工作目录 |
+|-------|------|----------|
+| main | 调度中心 | `/agents/main/workspace/` |
+| coder | 编程开发 | `/agents/coder/workspace/` |
+| researcher | 搜索分析 | `/agents/researcher/workspace/` |
+| monitor | 监控任务 | `/agents/monitor/workspace/` |
+| creative | 创意文案 | `/agents/creative/workspace/` |
+
+---
+
 ## 重要决策
 
-_记录重要的选择和决定_
-
-## 项目
-
 ### OpenClaw 多 Agent 协作系统
-- **状态**: 已部署
 - **时间**: 2026-03-07
 - **主机**: Mac mini (本地)
 - **架构**: 单主机多 Agent 隔离会话
 
-**Agent 分工:**
-1. **main** - 对话入口、任务调度、结果整合
-2. **coder** - 编程、技术实现、Git 操作（危险命令需确认）
-3. **researcher** - 网络搜索、数据分析（走代理）
-4. **monitor** - 定时监控、通知推送（每2小时运行）
-
-**安全策略:**
-- 文件隔离: 各 Agent 独立工作目录
-- 通信: 通过 `/workspace/memory/` 共享状态
-- 审计: 所有敏感操作记录到 `audit.log`
-- 代理: 网络请求统一走 17890 端口
-
-**配置文件:**
-- 系统文档: `/workspace/agents/multi-agent-system.md`
-- 启动脚本: `/workspace/agents/init.sh`
-- 共享状态: `/workspace/memory/shared-state.json`
-- 任务队列: `/workspace/memory/task-queue.json`
-
-## 偏好
-
-_工作习惯、沟通风格等_
-
-## 教训/经验
-
-_从错误中学到的东西_
-
-## 待办
-
-_需要记住的长期事项_
+### 监控数据源策略
+- **国内源**: V2EX、B站、掘金（无需代理）
+- **国际源**: HN、GitHub（走代理）
+- **RSS**: X(Twitter)、YouTube（RSSHub）
+- **放弃**: Reddit（被限流）
 
 ---
 
-*最后更新: 2026-03-07*
+## 项目状态
+
+### 进行中
+- [ ] 修复飞书 bindings 配置
+- [ ] 研究 Cross-Claude MCP
+- [ ] 部署 LLM Router
+
+### 已完成
+- [x] 配置 GitHub
+- [x] 改进监控报告
+- [x] 多 Agent 工作台
+- [x] 本地模型路由
+
+---
+
+## 快速链接
+
+| 文件 | 用途 |
+|------|------|
+| `AGENTS.md` | 行为宪法、工作规范 |
+| `SOUL.md` | 性格定义、核心价值观 |
+| `USER.md` | 用户信息、偏好 |
+| `memory/projects.md` | 项目详情 |
+| `memory/infra.md` | 基础设施配置 |
+| `memory/lessons.md` | 经验教训 |
+
+---
+
+*这是索引层，保持精简。详细内容在各分层文件中。*
+
+**最后更新**: 2026-03-08

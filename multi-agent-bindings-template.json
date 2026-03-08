@@ -1,0 +1,81 @@
+{
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "peer": {
+          "kind": "group",
+          "id": "oc_main_group_id"
+        }
+      }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "peer": {
+          "kind": "group",
+          "id": "oc_coder_group_id"
+        }
+      }
+    },
+    {
+      "agentId": "researcher",
+      "match": {
+        "channel": "feishu",
+        "peer": {
+          "kind": "group",
+          "id": "oc_researcher_group_id"
+        }
+      }
+    },
+    {
+      "agentId": "monitor",
+      "match": {
+        "channel": "feishu",
+        "peer": {
+          "kind": "group",
+          "id": "oc_monitor_group_id"
+        }
+      }
+    },
+    {
+      "agentId": "creative",
+      "match": {
+        "channel": "feishu",
+        "peer": {
+          "kind": "group",
+          "id": "oc_creative_group_id"
+        }
+      }
+    }
+  ],
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a92c417c1b38dced",
+      "appSecret": "Q05a7y1wNt2OPyTCCaMgaeG0bvLb7Hwh",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "groupPolicy": "open",
+      "groups": {
+        "oc_main_group_id": {
+          "requireMention": false
+        },
+        "oc_coder_group_id": {
+          "requireMention": false
+        },
+        "oc_researcher_group_id": {
+          "requireMention": false
+        },
+        "oc_monitor_group_id": {
+          "requireMention": false
+        },
+        "oc_creative_group_id": {
+          "requireMention": false
+        }
+      }
+    }
+  }
+}
