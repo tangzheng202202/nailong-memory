@@ -9,10 +9,9 @@
 ### 子项目
 
 #### 1. 飞书多 Agent 绑定
-- **状态**: ⚠️ 配置问题
-- **问题**: bindings 与 OpenClaw 2026.3.1 不兼容
-- **解决方案**: 等待版本更新或使用关键词触发
-- **优先级**: 中
+- **状态**: ✅ 已修复
+- **改动**: groupPolicy 改为 allowlist，添加白名单和安全限制
+- **安全审计**: 0 CRITICAL (原为3个)
 
 #### 2. 监控系统 v5
 - **状态**: ✅ 运行中
@@ -35,9 +34,9 @@
 
 ### 待办任务
 
-- [ ] 修复飞书 bindings 配置
-- [ ] 研究 Cross-Claude MCP 多实例通信
-- [ ] 部署 LLM Router 成本优化
+- [x] 修复飞书 bindings 配置
+- [x] 研究 Cross-Claude MCP 多实例通信
+- [x] 部署 LLM Router 成本优化
 - [ ] 开发 2-3 个实用 skills
 
 ---
