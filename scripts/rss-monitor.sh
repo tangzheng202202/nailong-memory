@@ -7,8 +7,17 @@ DATE=$(date +%Y-%m-%d-%H%M)
 LOG_FILE="memory/daily/rss-monitor-${DATE}.log"
 FEISHU_USER="ou_5eb1253df17d5f9135a4fc537e365203"
 
+# 代理配置
+PROXY_PORT="${PROXY_PORT:-17890}"
+PROXY_URL="http://127.0.0.1:${PROXY_PORT}"
+export http_proxy="$PROXY_URL"
+export https_proxy="$PROXY_URL"
+export HTTP_PROXY="$PROXY_URL"
+export HTTPS_PROXY="$PROXY_URL"
+
 echo "📡 RSS 订阅监控 - ${DATE}" > "$LOG_FILE"
 echo "======================================" >> "$LOG_FILE"
+echo "代理端口: $PROXY_PORT" >> "$LOG_FILE"
 echo "" >> "$LOG_FILE"
 
 TOTAL_FOUND=0
@@ -16,29 +25,23 @@ TOTAL_FOUND=0
 # ========== X (Twitter) - 通过 Nitter RSS ==========
 echo "🐦 X (Twitter) 热门..." >> "$LOG_FILE"
 # Nitter 实例（可能需要更换）
-NITTER_INSTANCES=(
-    "https://nitter.net"
-    "https://nitter.it"
-    "https://nitter.cz"
-)
+RSSHub_URL="http://localhost:1200"
 
 # 监控的技术账号（可通过 RSS 订阅）
 X_ACCOUNTS=("elonmusk" "sama" "ylecun" "paulg")
 
+# 使用自建 RSSHub 获取 Twitter
 for ACCOUNT in "${X_ACCOUNTS[@]}"; do
-    for INSTANCE in "${NITTER_INSTANCES[@]}"; do
-        RSS_URL="$INSTANCE/$ACCOUNT/rss"
-        RSS_CONTENT=$(curl -s --max-time 10 "$RSS_URL" 2>/dev/null)
-        if [ -n "$RSS_CONTENT" ] && echo "$RSS_CONTENT" | grep -q "<item>"; then
-            TWEETS=$(echo "$RSS_CONTENT" | grep -oE '<title>[^<]+' | sed 's/<title>//' | head -3)
-            if [ -n "$TWEETS" ]; then
-                echo "[@$ACCOUNT]:" >> "$LOG_FILE"
-                echo "$TWEETS" | sed 's/^/  - /' >> "$LOG_FILE"
-                TOTAL_FOUND=$((TOTAL_FOUND + 3))
-                break
-            fi
+    RSS_URL="$RSSHub_URL/twitter/user/$ACCOUNT"
+    RSS_CONTENT=$(curl -s --max-time 10 "$RSS_URL" 2>/dev/null)
+    if [ -n "$RSS_CONTENT" ] && echo "$RSS_CONTENT" | grep -q "<item>"; then
+        TWEETS=$(echo "$RSS_CONTENT" | grep -oE '<title>[^<]+' | sed 's/<title>//' | head -3)
+        if [ -n "$TWEETS" ]; then
+            echo "[@$ACCOUNT]:" >> "$LOG_FILE"
+            echo "$TWEETS" | sed 's/^/  - /' >> "$LOG_FILE"
+            TOTAL_FOUND=$((TOTAL_FOUND + 3))
         fi
-    done
+    fi
 done
 
 if [ "$TOTAL_FOUND" -eq 0 ]; then
@@ -51,8 +54,8 @@ echo "" >> "$LOG_FILE"
 echo "📺 YouTube 热门..." >> "$LOG_FILE"
 # YouTube 有官方 RSS，但需要频道 ID
 # 使用 RSSHub 聚合 trending
-YOUTUBE_RSS="https://rsshub.app/youtube/trending"
-YT_CONTENT=$(curl -s --max-time 15 "$YOUTUBE_RSS" 2>/dev/null)
+YOUTUBE_RSS="$RSSHub_URL/youtube/trending"
+YT_CONTENT=$(curl -s --max-time 15 -x "$PROXY_URL" "$YOUTUBE_RSS" 2>/dev/null)
 
 if [ -n "$YT_CONTENT" ] && echo "$YT_CONTENT" | grep -q "<item>"; then
     YT_VIDEOS=$(echo "$YT_CONTENT" | grep -oE '<title>[^<]+' | sed 's/<title>//' | head -5)

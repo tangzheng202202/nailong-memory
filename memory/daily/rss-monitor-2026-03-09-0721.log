@@ -1,0 +1,40 @@
+📡 **RSS 订阅监控报告** 2026-03-09 07:21
+
+📊 状态: **服务异常**
+
+---
+
+## 🔴 问题汇总
+
+1. **本地 RSSHub 服务**: 无法连接 (localhost:1200)
+   - 可能原因: 服务未启动或被墙
+   
+2. **外部 RSSHub**: 无法访问 (rsshub.app)
+   - 可能原因: 网络限制
+
+3. **搜索 API**: 未配置
+   - Perplexity API Key 缺失
+   - DuckDuckGo 访问受限
+
+---
+
+## 📋 建议修复
+
+1. 启动本地 RSSHub:
+   ```bash
+   docker start rsshub  # 或重新部署
+   ```
+
+2. 配置搜索 API:
+   ```bash
+   export PERPLEXITY_API_KEY="your-key"
+   ```
+
+3. 检查代理设置:
+   ```bash
+   curl -x http://127.0.0.1:17890 https://www.google.com
+   ```
+
+---
+
+⏰ 下次监控: 08:21

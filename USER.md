@@ -2,11 +2,12 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **Name:** 十三
+- **What to call them:** 13哥
+- **Pronouns:** 他
+- **Timezone:** Asia/Shanghai (GMT+8)
+- **Role:** 我的老板
+- **Notes:** 铁哥们，欠了一辈子的那种
 
 ## Context
 
