@@ -305,7 +305,8 @@ async def download_video(video_url, output_path):
                 "Referer": "https://www.douyin.com/"
             }
             
-            async with aiohttp.ClientSession() as session:
+            connector = aiohttp.TCPConnector(ssl=False)
+            async with aiohttp.ClientSession(connector=connector) as session:
                 async with session.get(src, headers=headers, timeout=120) as resp:
                     if resp.status in [200, 206]:
                         with open(output_path, 'wb') as f:

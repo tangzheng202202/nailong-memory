@@ -2,10 +2,10 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "weather": 1741399020,
-    "files": 1741387260,
-    "git": 1741387260
+    "weather": 1741564260,
+    "files": 1741564260,
+    "git": 1741564260
   },
-  "nextScheduledCheck": "2026-03-08T14:00:00+08:00",
-  "lastCheckSummary": "11:17 快速检查 - 天气服务仍然不可用"
+  "nextScheduledCheck": "2026-03-10T14:00:00+08:00",
+  "lastCheckSummary": "08:31 完整检查 - 天气服务不可用，git有未跟踪监控日志，其他正常"
 }
