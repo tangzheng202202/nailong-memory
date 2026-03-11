@@ -1,0 +1,21 @@
+{
+  "appid": "wx4a17931c571eb5d8",
+  "appsecret": "932444921aafe605ed9f86ca1ad70746",
+  "token": "wechat_token",
+  "encoding_aes_key": "",
+  "server_url": "http://localhost:5000",
+  "auto_reply": {
+    "welcome_message": "感谢关注NAI Long成长日记！我是奶龙，你的AI助手。",
+    "default_reply": "收到！奶龙正在处理，稍后回复。",
+    "keyword_rules": [
+      {
+        "keyword": "帮助",
+        "reply": "我可以帮你：查天气、设提醒、管理待办、监控系统。直接说需求就行！"
+      },
+      {
+        "keyword": "看板",
+        "reply": "智能看板已更新，请查看桌面快捷方式。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "wake_word": "奶龙",
+  "voice_enabled": true,
+  "text_enabled": true,
+  "voice_format": "mp3",
+  "auto_clean_temp": true
+}
